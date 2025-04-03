@@ -3,8 +3,10 @@ import sys
 import random
 import pandas as pd
 
+
 x = [round(random.random(), 2), 2, random.random(), 5, 6, 7, 8, 9]
 y = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto']
+media = sum(x) / len(y) 
 df = pd.DataFrame({'Mês':y, 'Quantidade:':x })
 
 senha = input('Digite a senha:\n')
@@ -32,8 +34,16 @@ class Comandos2(Comandos):
             plt.show()
         else:
             sys.exit()
-
 Comandos2.processa_dado(dado)
+
+media0 = input('Deseja ver a média de vendas?\n')
+class Comandos3(Comandos):
+    def mostrar_media():
+        if media0 == 'sim':
+            print(f'A média de vendas foi: {media:.2f}')
+        else:
+            sys.exit()           
+Comandos3.mostrar_media()
 
 plt.bar(y, x, color='blue')
 # plt.plot(y,x, color='red')
